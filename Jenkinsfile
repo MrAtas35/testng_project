@@ -10,15 +10,20 @@ maven 'Maven-3.9'
 stages{
 // ilk adımda github dan projeyi çekip, master branch e checkout oluyor.
 stage('Checkout') {
-    git branch: 'master',
+steps{
+ git branch: 'master',
     url: 'https://github.com/MrAtas35/testng_project.git'
+}
+
 }
  // 2. adımda testleri çalıştırıyor
     stage('Run Test') {
-
+steps{
+ bat 'mvn clean test' // Windows için
+}
     // Mac için - >  sh 'mvn clean test'
 
-    bat 'mvn clean test' // Windows için
+
 
     // bu adımda ise raporu oluşturuyor
     }
