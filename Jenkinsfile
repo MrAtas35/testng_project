@@ -1,5 +1,6 @@
 pipeline {
 
+agent any // bu pipeline dosyasına herhangi bir özel agent eklemedik.
 //jenkins içerisinde jdk ve maven i tanımladık. Bu sayede localdeki jdk ve maven a bakmayacak.
 tools {
 jdk 'JDK21'
