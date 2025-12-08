@@ -24,6 +24,7 @@ stage('Checkout') {
     }
     stage('Generate Allure Report') {
     // allure result ın oluştuğu klasörü tanımladık
+    steps {
     allure([
          results:[[path: 'target/allure-results']]
     ])
