@@ -32,6 +32,7 @@ steps{
     // allure result ın oluştuğu klasörü tanımladık
     steps {
     allure([
+    commandline: 'Allure',
          results:[[path: 'target/allure-results']]
     ])
     }
