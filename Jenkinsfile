@@ -56,7 +56,7 @@ pipeline {
         // ─────────────────────────────────────────────────────────
             steps {
                 echo "Maven testleri çalıştırılıyor..."
-                sh 'mvn -U -B clean test'
+                bat 'mvn -U -B clean test'
                 // -U: Snapshot bağımlılıkları güncellensin.
                 // -B: Batch mode (Jenkins için interaktif olmayan mod).
                 // clean test → önce temizler sonra testleri çalıştırır.
@@ -90,10 +90,10 @@ pipeline {
             steps {
                 echo "Allure sonuçları zipleniyor ve arşivleniyor..."
 
-                sh 'rm -f allure-results.zip || true'
+                bat 'rm -f allure-results.zip || true'
                 // Önceden zip varsa sil. Hata verirse yok say.
 
-                sh "zip -r allure-results.zip ${ALLURE_RESULTS_PATH}"
+                bat "zip -r allure-results.zip ${ALLURE_RESULTS_PATH}"
                 // Zip dosyası oluşturulur (-r recursive)
 
                 archiveArtifacts artifacts: 'allure-results.zip', fingerprint: true
